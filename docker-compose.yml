@@ -1,0 +1,30 @@
+version: "3"
+
+networks:
+    pg:
+
+services:
+    db:
+        image: postgres
+        ports:
+            - 5432:5432
+        environment:
+            - POSTGRES_USER=xiv
+            - POSTGRES_PASSWORD=xiv
+            - POSTGRES_DB=xiv
+        volumes:
+            - ~/docker/xiv/sql:/var/lib/postgresql/data
+        networks:
+            - pg
+
+    web:
+        image: dpage/pgadmin4
+        ports:
+            - 8080:80
+        environment:
+            - PGADMIN_DEFAULT_EMAIL=luther38@gmail.com
+            - PGADMIN_DEFAULT_PASSWORD=xiv
+        networks:
+            - pg
+        depends_on:
+            - db
