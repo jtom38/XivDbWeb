@@ -1,0 +1,79 @@
+{% extends 'base.html'%}
+
+{% block title %}
+Weapons
+{% endblock %}
+
+{% block body %}
+<nav>
+    <h1>{{ item.name }}</h1>
+
+    <h2>Item Requirements</h2>
+    <ul class="list-group">
+        <li class="list-group-item">Level: {{ item.level }}</li>
+        <li class="list-group-item">Melder Level: {{ item.materia.melderLevel}}</li>
+        <li class="list-group-item">Melder Job: {{ item.materia.melderJob }} </li>
+        <li class="list-group-item">Advanced Melding: {{item.materia.advancedMelding}} </li>
+    </ul>
+
+    <h2>Item Properties</h2>
+    Rarity: {{ item.rarity }}<br>
+    Store in Armorie: {{ item.armorie }}<br>
+    Use Company Crest: {{ item.companyCrest }}<br>
+    Dyable: {{ item.dyeable }}<br>
+    Extractable: {{item.extractable}}<br>
+    Projectable: {{item.projectable}} <br>
+    Unique: {{item.unique}}<br>
+    Untradable: {{item.untradable}}<br>
+
+
+    <h2>Stats</h2>
+    {% if item.stats.str != 0 %}
+    Strength: {{item.stats.str}} <br>
+    {% endif %}
+    
+    {% if item.stats.vit != 0 %}
+    Vitality: {{item.stats.vit}}<br>
+    {% endif %}
+
+    {% if item.stats.int != 0 %}
+    intelligence: {{item.stats.int}}<br>
+    {% endif %}
+
+    {% if item.stats.mnd != 0 %}
+    Mind: {{item.stats.mnd}}<br>
+    {% endif %}
+ 
+    {% if item.stats.pie != 0 %}
+    Pieity: {{item.stats.pie}}<br>
+    {% endif %}
+    
+    {% if item.stats.dex != 0 %}
+    Dexteriety: {{item.stats.dex}}<br>
+    {% endif %}
+
+    {% if item.stats.det != 0 %}
+    Determination: {{item.stats.det}}<br>
+    {% endif %}
+
+    {% if item.stats.dhr != 0 %}
+    Direct Hit Rate: {{item.stats.dhr}}<br>
+    {% endif %}
+
+
+    <h2>Materia Requirements</h2>
+    <ul class="list-group">
+        <li class="list-group-item">Available Slots: {{ item.materia.slots }}</li>
+        <li class="list-group-item">Melder Level: {{ item.materia.melderLevel}}</li>
+        <li class="list-group-item">Melder Job: {{ item.materia.melderJob }} </li>
+        <li class="list-group-item">Advanced Melding: {{item.materia.advancedMelding}} </li>
+    </ul>
+    <br>
+    <h2>Repair Requirements</h2>
+    <ul class="list-group">
+        <li class="list-group-item">Job: {{ item.repair.job }}</li> 
+        <li class="list-group-item">Level: {{ item.repair.level }}</li>
+        <li class="list-group-item">Material: {{ item.repair.material }}</li> 
+    </ul>
+</nav>
+{% endblock %}
